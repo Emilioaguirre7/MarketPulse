@@ -1,0 +1,28 @@
+{
+  "name": "marketpulse",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:nlp\"",
+    "dev:web": "cd apps/web && npm run dev",
+    "dev:nlp": "cd apps/nlp && python -m uvicorn main:app --reload --port 8000",
+    "build": "npm run build:shared && npm run build:web",
+    "build:shared": "cd packages/shared && npm run build",
+    "build:web": "cd apps/web && npm run build",
+    "test": "npm run test:web && npm run test:nlp",
+    "test:web": "cd apps/web && npm test",
+    "test:nlp": "cd apps/nlp && pytest",
+    "lint": "npm run lint:web && npm run lint:nlp",
+    "lint:web": "cd apps/web && npm run lint",
+    "lint:nlp": "cd apps/nlp && ruff check .",
+    "format": "npm run format:web && npm run format:nlp",
+    "format:web": "cd apps/web && npm run format",
+    "format:nlp": "cd apps/nlp && ruff format ."
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

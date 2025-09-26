@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-gray-800 rounded-2xl shadow-sm border border-gray-700 p-6 hover:shadow-md transition-shadow duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-700 text-gray-100 px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200 font-medium;
+  }
+
+  .sentiment-positive {
+    @apply bg-success-900/20 text-success-300 border-success-800/50;
+  }
+
+  .sentiment-neutral {
+    @apply bg-gray-700/50 text-gray-300 border-gray-600/50;
+  }
+
+  .sentiment-negative {
+    @apply bg-red-900/20 text-red-300 border-red-800/50;
+  }
+}
+
+/* Motion keyframes - respects prefers-reduced-motion */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* we duplicate the row, so 50% loops */
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes sparkline-reveal {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes price-flash-up {
+  0% { color: rgb(34 197 94); } /* green-500 */
+  100% { color: inherit; }
+}
+
+@keyframes price-flash-down {
+  0% { color: rgb(239 68 68); } /* red-500 */
+  100% { color: inherit; }
+}
+
+/* Motion-safe utilities */
+.ticker-scroll {
+  animation-name: ticker-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+.sparkline-reveal {
+  animation: sparkline-reveal 0.8s ease-out;
+  transform-origin: left center;
+}
+
+.fade-slide-up {
+  animation: fade-slide-up 0.6s ease-out;
+}
+
+.price-flash-up {
+  animation: price-flash-up 0.3s ease-out;
+}
+
+.price-flash-down {
+  animation: price-flash-down 0.3s ease-out;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-scroll {
+    animation-duration: 120s; /* Much slower for reduced motion but still functional */
+  }
+
+  .shimmer::before,
+  .sparkline-reveal,
+  .fade-slide-up,
+  .price-flash-up,
+  .price-flash-down {
+    animation: none;
+  }
+
+  .fade-slide-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .sparkline-reveal {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
