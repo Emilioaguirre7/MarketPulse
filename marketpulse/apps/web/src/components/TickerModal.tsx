@@ -6,7 +6,7 @@ import { SentimentBadge } from './SentimentBadge'
 import { StockChart } from './StockChart'
 import { FeedbackForm } from './FeedbackForm'
 import { useEffect } from 'react'
-import { Ticker } from '@/lib/shared'
+import { Ticker, Headline } from '@/lib/shared'
 
 type TickerModalProps = {
   isOpen: boolean
@@ -158,7 +158,7 @@ export default function TickerModal({ isOpen, ticker, onClose }: TickerModalProp
               </div>
             ) : analysisData && analysisData.headlines.length > 0 ? (
               <div className="space-y-4">
-                {analysisData.headlines.map((headline, index) => (
+                {analysisData.headlines.map((headline: Headline, index: number) => (
                   <div key={index} className="p-4 bg-gray-700 rounded-lg hover:bg-gray-650 transition-colors duration-200">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
