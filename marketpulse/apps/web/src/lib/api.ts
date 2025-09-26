@@ -1,4 +1,4 @@
-import { MarketPulseClient } from '@marketpulse/shared'
+import { MarketPulseClient } from './shared'
 
 const NLP_BASE_URL = process.env.NEXT_PUBLIC_NLP_BASE_URL || 'http://localhost:8000'
 

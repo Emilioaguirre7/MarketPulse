@@ -16,7 +16,6 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@marketpulse/shared": "*",
     "@prisma/client": "^5.7.1",
     "@tanstack/react-query": "^5.14.2",
     "next": "14.0.4",

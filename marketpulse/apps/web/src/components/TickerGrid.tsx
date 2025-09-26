@@ -4,7 +4,7 @@ import { useState, useEffect, forwardRef, useImperativeHandle } from 'react'
 import { TickerCard } from './TickerCard'
 import { loadWatchlist, saveWatchlist, MAX_WATCHLIST_SIZE } from '@/lib/watchlist'
 import { api } from '@/lib/api'
-import { Ticker } from '@marketpulse/shared'
+import { Ticker } from '@/lib/shared'
 
 interface TickerGridProps {
   onTickerClick: (ticker: string) => void

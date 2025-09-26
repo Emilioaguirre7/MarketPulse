@@ -1,4 +1,4 @@
-import { SentimentLabel } from '@marketpulse/shared'
+import { SentimentLabel } from '@/lib/shared'
 
 interface SentimentBadgeProps {
   label: SentimentLabel

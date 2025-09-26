@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-import { PricePoint } from '@marketpulse/shared'
+import { PricePoint } from '@/lib/shared'
 
 interface StockChartProps {
   data: PricePoint[]

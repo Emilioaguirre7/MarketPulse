@@ -1,7 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/db'
-import { FeedbackSchema, TickerSchema } from '@marketpulse/shared'
+import { FeedbackSchema, TickerSchema } from '@/lib/shared'
 import { revalidatePath } from 'next/cache'
 
 export async function submitFeedback(data: {

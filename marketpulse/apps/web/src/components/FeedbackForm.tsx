@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Ticker } from '@marketpulse/shared'
+import { Ticker } from '@/lib/shared'
 import { submitFeedback } from '@/app/actions/feedback'
 
 interface FeedbackFormProps {

@@ -6,7 +6,7 @@ import { SentimentBadge } from './SentimentBadge'
 import { StockChart } from './StockChart'
 import { FeedbackForm } from './FeedbackForm'
 import { useEffect } from 'react'
-import { Ticker } from '@marketpulse/shared'
+import { Ticker } from '@/lib/shared'
 
 type TickerModalProps = {
   isOpen: boolean

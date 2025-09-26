@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import { api } from '@/lib/api'
 import { SentimentBadge } from './SentimentBadge'
 import { useInView } from '@/lib/useInView'
-import { Ticker } from '@marketpulse/shared'
+import { Ticker } from '@/lib/shared'
 
 interface TickerCardProps {
   ticker: Ticker
@@ -140,7 +140,7 @@ export function TickerCard({ ticker, onClick, onRemove, showRemoveButton, index 
   }, [currentPrice, previousPrice])
 
   // Extract sparkline data from series (last 20 points)
-  const sparklineData = priceData?.series?.slice(-20).map(p => p.close) || []
+  const sparklineData = priceData?.series?.slice(-20).map((p: any) => p.close) || []
 
   const companyNames: Record<string, string> = {
     AAPL: 'Apple Inc.',
@@ -166,7 +166,7 @@ export function TickerCard({ ticker, onClick, onRemove, showRemoveButton, index 
   if (hasPriceError) {
     return (
       <div
-        ref={elementRef}
+        ref={elementRef as any}
         className={`card cursor-pointer hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 relative focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 ${
           isInView ? 'fade-slide-up' : 'opacity-0'
         }`}
@@ -195,7 +195,7 @@ export function TickerCard({ ticker, onClick, onRemove, showRemoveButton, index 
 
   return (
     <div
-      ref={elementRef}
+      ref={elementRef as any}
       className={`card cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-200 relative focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 ${
         isInView ? 'fade-slide-up' : 'opacity-0'
       }`}

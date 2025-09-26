@@ -6,7 +6,7 @@ import TickerModal from '@/components/TickerModal'
 import { Topbar } from '@/components/Topbar'
 import { TickerGrid, TickerGridRef } from '@/components/TickerGrid'
 import { useToast } from '@/components/Toast'
-import { Ticker } from '@marketpulse/shared'
+import { Ticker } from '@/lib/shared'
 
 const TickerTape = dynamic(() => import('@/components/TickerTape'), { ssr: false })
 
