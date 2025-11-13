@@ -8,7 +8,7 @@ MarketPulse provides instant insights into market sentiment by analyzing financi
 
 ## 🌐 Live Demo
 
-**[View Live App →](https://your-vercel-url.vercel.app)**
+**[View Live App →](https://market-pulse-blue.vercel.app/)**
 
 ## ✨ Features
 
