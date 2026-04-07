@@ -39,7 +39,7 @@ export async function GET(
       interval: '1d' as const,
     }
 
-    const result = await yahooFinance.historical(symbol, queryOptions)
+    const result = (await yahooFinance.historical(symbol, queryOptions)) as any[]
 
     if (!result || result.length === 0) {
       return NextResponse.json(
