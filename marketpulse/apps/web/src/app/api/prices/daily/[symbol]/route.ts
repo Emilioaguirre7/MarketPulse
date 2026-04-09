@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import YahooFinance from "yahoo-finance2"
-const yahooFinance = new YahooFinance()
+import yahooFinance from 'yahoo-finance2'
 
 export const runtime = 'nodejs'
 export const revalidate = 900 // 15 minutes
@@ -40,7 +39,7 @@ export async function GET(
       interval: '1d' as const,
     }
 
-    const result = (await yahooFinance.historical(symbol, queryOptions, { validateResult: false })) as any[]
+    const result = (await yahooFinance.historical(symbol, queryOptions)) as any[]
 
     if (!result || result.length === 0) {
       return NextResponse.json(
